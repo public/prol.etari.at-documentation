@@ -2,7 +2,9 @@
 
 I have a VPS. It runs Debian stable. I use it for a lot of things. This documentation is as much about what the point of having my own VPS is as much as it is about the software I use to implement it.
 
-Ultimately I'm planning to get all of this madness turned into a fabric/chef/puppet script.
+My motivation behind building all of this is similar to that of the [FreedomBox](http://freedomboxfoundation.org/) except half of it lives in a datacenter in Manchester rather than my living room.
+
+Ultimately I'm planning to get all of this madness turned into a fabric/chef/puppet/cfengine3 script. Probably as a fork of [Nick Daly's plug server setup scripts](https://bitbucket.org/nickdaly/plugserver). (Which is by the far most useful bit of work to come out of the FreedomBox mailing-list so far.)
 
 ## SSL
 
@@ -40,4 +42,4 @@ Obviously there's lots of awesome music and videos on this thing. If I'm going t
 
 I run a varnish instance that proxies several HTTP services from the HTPC to the internet. Media streaming is done through [Subsonic](http://www.subsonic.org/). This gives me real-time transcoding and streaming of video to my browser or mobile phone from my home. It's like having a private NetFlix and Spotify server rolled into one. Sadly it doesn't support HTML5 video/audio yet so I have to endure Flash :(
 
-I started off using Squid and worked rather nicely but well, everything in [this](https://www.varnish-cache.org/trac/wiki/ArchitectNotes) is pretty true. So I switched. I run the 3.0.2+streaming branch of Varnish so that the large media files and my HTPCs slowish upload speed don't make the whole experience unusable. This requires you to modify the varnish config to work too! The magic sauce is the beresp.do_stream option in vcl_fetch.
+I started off using Squid and it worked rather nicely but well, everything in [this](https://www.varnish-cache.org/trac/wiki/ArchitectNotes) is pretty true. So I switched. I run the 3.0.2+streaming branch of Varnish so that the large media files and my HTPCs slowish upload speed don't make the whole experience unusable. This requires you to modify the varnish config to work too! The magic sauce is the beresp.do_stream option in vcl_fetch.
